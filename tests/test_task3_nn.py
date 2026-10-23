@@ -73,32 +73,34 @@ def test_model_evaluation():
     iris = datasets.load_iris()
     X = iris.data
     y = iris.target
-    
+
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
-    
+
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
-    
+
     from tensorflow.keras import models, layers
     y_train_onehot = __import__('tensorflow').keras.utils.to_categorical(y_train, 3)
-    
+
     model = models.Sequential([
         layers.Dense(8, activation='relu', input_shape=(4,)),
         layers.Dense(8, activation='relu'),
         layers.Dense(3, activation='softmax')
     ])
-    
+
     model.compile(optimizer='adam',
                   loss='categorical_crossentropy',
                   metrics=['accuracy'])
-    
-    model.fit(X_train_scaled, y_train_onehot, epochs=5, batch_size=16, verbose=0)
-    
-    loss, accuracy = model.evaluate(X_test_scaled, 
+
+    # Five epochs are not enough for a freshly initialized network to beat
+    # chance; the study model is trained far longer (see src/config.py).
+    model.fit(X_train_scaled, y_train_onehot, epochs=300, batch_size=16, verbose=0)
+
+    loss, accuracy = model.evaluate(X_test_scaled,
                                     __import__('tensorflow').keras.utils.to_categorical(y_test, 3),
                                     verbose=0)
-    
+
     # Check evaluation results
     assert accuracy > 0.5, f"Expected accuracy > 0.5, got {accuracy}"
     assert loss < 1.0, f"Expected loss < 1.0, got {loss}"

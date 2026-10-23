@@ -1,0 +1,63 @@
+{
+  "dataset": {
+    "n_rows": 150,
+    "n_columns": 5,
+    "missing_values": 0,
+    "duplicate_rows": 1,
+    "class_counts": {
+      "setosa": 50,
+      "versicolor": 50,
+      "virginica": 50
+    },
+    "summary_path": "results/eda_summary.txt",
+    "summary_chars": 3131
+  },
+  "pca": {
+    "n_components": 3,
+    "explained_variance_ratio": [
+      0.7296244541329993,
+      0.22850761786701704,
+      0.036689218892828765
+    ],
+    "cumulative_variance": [
+      0.7296244541329993,
+      0.9581320720000163,
+      0.994821290892845
+    ],
+    "loadings": {
+      "sepal length (cm)": [
+        0.5210659146701196,
+        -0.2693474425059422,
+        0.5804130957962941,
+        0.5648565357793608
+      ],
+      "sepal width (cm)": [
+        0.3774176155645678,
+        0.9232956595407142,
+        0.024491609085585453,
+        0.06694198696805786
+      ],
+      "petal length (cm)": [
+        0.7195663527008166,
+        -0.24438177951440027,
+        -0.14212636933390418,
+        -0.6342727371109225
+      ]
+    },
+    "figure": "images/iris_pca_3d.png"
+  },
+  "test_accuracy": 0.9666666388511658,
+  "f1_macro": 0.9665831244778612,
+  "cross_validation": {
+    "folds": 5,
+    "fold_accuracy": [
+      1.0,
+      1.0,
+      0.8666666746139526,
+      1.0,
+      0.9333333373069763
+    ],
+    "mean_accuracy": 0.9600000023841858,
+    "std_accuracy": 0.05333333015441894
+  }
+}
