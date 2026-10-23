@@ -13,7 +13,7 @@ This issue involves a comprehensive analysis of the Iris dataset using neural ne
 ### 2. Data Exploration and 3D Visualization
 - [x] **Describe the dataset fields, features, and classifications**
   - Features: sepal length, sepal width, petal length, petal width (all in cm)
-  - Classes: Iris-setosa, Iris-versicolor, Iris-virginica
+  - Classes: Iris setosa, Iris versicolor, Iris virginica
 - [x] **Perform basic data exploration and inspection**
   - Check data shape, missing values, statistics
   - Display first few rows, class distribution

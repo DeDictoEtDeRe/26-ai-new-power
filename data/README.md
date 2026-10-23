@@ -13,15 +13,15 @@ species, and four continuous measurements in centimetres.
 | `sepal width (cm)` | float | cm | Width of the sepal |
 | `petal length (cm)` | float | cm | Length of the petal |
 | `petal width (cm)` | float | cm | Width of the petal |
-| `species` | string | — | One of `setosa`, `versicolor`, `virginica` |
+| `species` | string | — | One of `Iris setosa`, `Iris versicolor`, `Iris virginica` |
 
 ## Class balance
 
 | Species | Count |
 | --- | ---: |
-| setosa | 50 |
-| versicolor | 50 |
-| virginica | 50 |
+| Iris setosa | 50 |
+| Iris versicolor | 50 |
+| Iris virginica | 50 |
 
 There are no missing values. The file is generated reproducibly with
 `python src/run_all.py --refresh-data`, which writes the scikit-learn copy to

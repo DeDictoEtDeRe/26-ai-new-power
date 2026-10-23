@@ -11,7 +11,7 @@ visualization, and train a compact feed-forward neural network
 train-test split, standardization, and early stopping. The network reaches
 96.67% test accuracy (macro-F1 = 0.9666) and a 5-fold cross-validation
 estimate of 96.00% ± 5.33%. The two error cases involve confusion between
-Iris-versicolor and Iris-virginica, consistent with the overlap visible in
+Iris versicolor and Iris virginica, consistent with the overlap visible in
 the PCA projection. The results confirm that even a 243-parameter model
 classifies Iris reliably, while honest evaluation (held-out test set plus
 cross-validation) matters more than a single optimistic accuracy figure.
@@ -19,7 +19,7 @@ cross-validation) matters more than a single optimistic accuracy figure.
 ## 1. Introduction
 The Iris dataset, collected by Ronald Fisher (1936), is one of the most
 familiar benchmarks in machine learning and pattern recognition. It contains
-150 observations from three Iris species — setosa, versicolor, and virginica
+150 observations from three Iris species — Iris setosa, Iris versicolor, and Iris virginica
 — each described by four measurements: sepal length, sepal width, petal
 length, and petal width, all in centimetres. Although tiny by modern
 standards, the dataset is an excellent vehicle for a full
@@ -38,7 +38,7 @@ and reports the findings.
 | `sepal width (cm)` | float | cm | Width of the sepal |
 | `petal length (cm)` | float | cm | Length of the petal |
 | `petal width (cm)` | float | cm | Width of the petal |
-| `species` | string | — | `setosa`, `versicolor`, or `virginica` |
+| `species` | string | — | `Iris setosa`, `Iris versicolor`, or `Iris virginica` |
 
 The classes are perfectly balanced: 50 samples per species (33.3% each). The
 data inspection summary (`results/eda_summary.txt`) reports no missing
@@ -47,10 +47,10 @@ release). Descriptive statistics show that petal measurements span much
 wider ranges (petal length 1.0–6.9 cm) than sepal measurements
 (4.3–7.9 cm), and the correlation matrix reveals strong positive
 correlations between petal length and width (0.96) and between sepal and
-petal length (0.87). Mean measurements separate the species clearly: setosa
-has the smallest petals (mean petal length ≈ 1.46 cm), versicolor is
-intermediate (≈ 4.26 cm), and virginica is the largest (≈ 5.14 cm), with
-versicolor and virginica overlapping noticeably.
+petal length (0.87). Mean measurements separate the species clearly: Iris
+setosa has the smallest petals (mean petal length ≈ 1.46 cm), Iris versicolor
+is intermediate (≈ 4.26 cm), and Iris virginica is the largest (≈ 5.14 cm),
+with versicolor and virginica overlapping noticeably.
 
 ## 3. Methodology
 
@@ -69,7 +69,7 @@ components for visualization. The explained-variance ratios are
 0.730, 0.229, and 0.037 — cumulatively 73.0%, 95.8%, and 99.5% of the
 total variance. The resulting 3-D scatter plot
 (`images/iris_pca_3d.png`, saved with loadings in `results/pca.json`) shows
-setosa forming a compact, isolated cluster, while versicolor and virginica
+Iris setosa forming a compact, isolated cluster, while versicolor and virginica
 form two elongated, partially overlapping clouds — matching the
 interpretation of the raw feature plots.
 
@@ -106,12 +106,12 @@ performance depends on the split.
 ## 4. Results
 
 ### 4.1 EDA and PCA Observations
-The 3-D PCA plot is the clearest single picture of class geometry: setosa
-is trivially separable, whereas versicolor/virginica overlap — the
+The 3-D PCA plot is the clearest single picture of class geometry: Iris
+setosa is trivially separable, whereas versicolor/virginica overlap — the
 confusion pattern later seen in the confusion matrix. Feature-distribution
-figures (box plots) show that petal width alone nearly separates setosa
-from the other two species, and separates virginica from versicolor only
-imperfectly.
+figures (box plots) show that petal width alone nearly separates Iris
+setosa from the other two species, and separates virginica from versicolor
+only imperfectly.
 
 ### 4.2 Neural-Network Performance
 On the held-out test set (30 samples):
@@ -124,12 +124,12 @@ On the held-out test set (30 samples):
 | Macro F1 | 0.9666 |
 | Test log loss | 0.0799 |
 
-Per class (from `results/classification_report.txt`): setosa was classified
-perfectly (precision = recall = 1.0000). versicolor had one miss
-(recall 0.9000, F1 0.9474) — one flower predicted as virginica — and
-virginica had one miss on the precision side (0.9091, F1 0.9524) because
-that versicolor flower was mislabeled as virginica. The two errors are
-mutually consistent: the network confused one versicolor with one
+Per class (from `results/classification_report.txt`): Iris setosa was
+classified perfectly (precision = recall = 1.0000). Iris versicolor had one
+miss (recall 0.9000, F1 0.9474) — one flower predicted as Iris virginica —
+and Iris virginica had one miss on the precision side (0.9091, F1 0.9524)
+because that versicolor flower was mislabeled as virginica. The two errors
+are mutually consistent: the network confused one versicolor with one
 virginica, which is exactly where the PCA projection shows overlap.
 Validation accuracy at the best epoch was 0.9583.
 
@@ -151,7 +151,7 @@ test set and 96.00% ± 5.33% across five folds. Two points deserve attention.
 First, evaluation honesty: with 30 test samples, single-split accuracy is
 noisy, and the cross-validation spread (±5.3 points) quantifies that noise;
 any headline number should be quoted with it. Second, error structure: all
-confusion is versicolor↔virginica, matching the PCA overlap and the weak
+confusion is Iris versicolor↔Iris virginica, matching the PCA overlap and the weak
 separation of the two species in sepal width. Setosa is effectively
 trivial for any reasonable model. Potential improvements include adding
 regularization (dropout, weight decay), trying deeper or wider hidden layers,
@@ -164,7 +164,7 @@ We reproduced the full Iris study end-to-end: dataset acquisition, EDA,
 3-D PCA visualization, neural-network training with an 80/20 stratified
 split, and multi-faceted evaluation. The compact MLP reached 96.67% test
 accuracy and 96.00% ± 5.33% cross-validation accuracy, with all residual
-errors confined to the versicolor/virginica boundary. Even a minimal
+errors confined to the Iris versicolor/Iris virginica boundary. Even a minimal
 neural network classifies Iris reliably; the more instructive lessons are
 the importance of honest evaluation (cross-validation, per-class
 breakdowns) and of tying model errors back to the geometry of the data.

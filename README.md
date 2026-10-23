@@ -9,7 +9,7 @@ neural-network classification, and a short paper on the results.
 `data/iris.csv` (see `data/README.md` for the full data dictionary):
 150 flower measurements, 4 features in centimetres
 (sepal length/width, petal length/width), 3 balanced classes
-(`setosa`, `versicolor`, `virginica` — 50 each). Refresh it at any time
+(`Iris setosa`, `Iris versicolor`, `Iris virginica` — 50 each). Refresh it at any time
 with `python src/run_all.py --refresh-data`.
 
 ## Quick start

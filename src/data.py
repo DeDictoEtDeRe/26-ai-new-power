@@ -18,7 +18,9 @@ def fetch_iris() -> pd.DataFrame:
     frame = bunch.frame.copy()
 
     # scikit-learn names the target column "target"; map it to species names.
-    frame["species"] = frame["target"].map(dict(enumerate(bunch.target_names)))
+    frame["species"] = frame["target"].map(
+        {0: "Iris setosa", 1: "Iris versicolor", 2: "Iris virginica"}
+    )
     frame = frame[FEATURES + ["species"]]
     frame[FEATURES] = frame[FEATURES].astype(float)
     return frame

@@ -5,12 +5,12 @@
     "missing_values": 0,
     "duplicate_rows": 1,
     "class_counts": {
-      "setosa": 50,
-      "versicolor": 50,
-      "virginica": 50
+      "Iris setosa": 50,
+      "Iris versicolor": 50,
+      "Iris virginica": 50
     },
     "summary_path": "results/eda_summary.txt",
-    "summary_chars": 3131
+    "summary_chars": 3185
   },
   "pca": {
     "n_components": 3,

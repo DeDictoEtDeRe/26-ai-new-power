@@ -107,7 +107,7 @@ def plot_distributions(frame: pd.DataFrame, path=IMAGES_DIR / "iris_feature_dist
     """Save boxplots of each feature grouped by species."""
     sns.set_theme(style="whitegrid", context="notebook")
     fig, axes = plt.subplots(2, 2, figsize=(11, 8))
-    palette = {"setosa": "#4C72B0", "versicolor": "#DD8452", "virginica": "#55A868"}
+    palette = {"Iris setosa": "#4C72B0", "Iris versicolor": "#DD8452", "Iris virginica": "#55A868"}
     for ax, feature in zip(axes.ravel(), FEATURES):
         sns.boxplot(
             data=frame,

@@ -22,7 +22,7 @@ FEATURES = [
     "petal length (cm)",
     "petal width (cm)",
 ]
-CLASSES = ["setosa", "versicolor", "virginica"]
+CLASSES = ["Iris setosa", "Iris versicolor", "Iris virginica"]
 
 RANDOM_STATE = 42
 TEST_SIZE = 0.20

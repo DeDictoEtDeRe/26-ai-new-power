@@ -24,7 +24,7 @@ def test_iris_csv_shape():
 def test_iris_csv_class_distribution():
     """Test that iris.csv has balanced class distribution."""
     df = pd.read_csv('data/iris.csv')
-    expected_classes = ['setosa', 'versicolor', 'virginica']
+    expected_classes = ['Iris setosa', 'Iris versicolor', 'Iris virginica']
     for cls in expected_classes:
         count = len(df[df['species'] == cls])
         assert count == 50, f"Expected 50 {cls} samples, got {count}"
