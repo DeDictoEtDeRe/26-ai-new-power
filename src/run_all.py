@@ -70,5 +70,11 @@ if __name__ == "__main__":
                         help="re-download/re-create data/iris.csv from scikit-learn")
     parser.add_argument("--skip-cv", action="store_true",
                         help="skip the 5-fold cross-validation estimate")
+    parser.add_argument("--dataset", choices=["iris", "ai4i"], default="iris",
+                        help="which study pipeline to run (default: iris)")
     args = parser.parse_args()
-    main(refresh_data=args.refresh_data, run_cv=not args.skip_cv)
+    if args.dataset == "ai4i":
+        from ai4i_run import main as ai4i_main
+        ai4i_main(refresh_data=args.refresh_data, skip_cv=args.skip_cv)
+    else:
+        main(refresh_data=args.refresh_data, run_cv=not args.skip_cv)

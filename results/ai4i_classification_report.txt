@@ -1,0 +1,20 @@
+AI4I 2020 - CLASSIFICATION REPORTS
+========================================
+
+## Binary task: Machine failure
+LogReg baseline: F1=0.2424  AUC=0.9069
+Keras MLP:     F1=0.4938  AUC=0.9660
+
+## 6-class task: failure mode
+              precision    recall  f1-score   support
+
+        none       1.00      0.87      0.93      1930
+         TWF       0.06      0.60      0.11        10
+         HDF       0.41      0.90      0.57        29
+         PWF       0.38      1.00      0.55        12
+         OSF       0.33      0.87      0.47        15
+         RNF       0.00      0.00      0.00         4
+
+    accuracy                           0.86      2000
+   macro avg       0.36      0.70      0.44      2000
+weighted avg       0.97      0.86      0.91      2000
